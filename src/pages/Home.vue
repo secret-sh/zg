@@ -1,8 +1,7 @@
 <template>
   <el-row class="fullscreen">
     <Header></Header>
-    <el-col :span="24" class="main">
-      <LeftMenu></LeftMenu>
+    <el-col :span="20" :offset="2" class="main">
       <el-container class="main-con">
 
         <el-col :span="24" class="breadcrumb-container">
@@ -22,6 +21,7 @@
 
       </el-container>
     </el-col>
+    <LeftMenu></LeftMenu>
   </el-row>
 </template>
 
@@ -38,8 +38,9 @@ export default{
 </script>
 
 <style scoped>
-.fullscreen{ width: 100%; position: absolute; top: 0px; bottom: 0px; }
-.fullscreen .main{ display: flex; position: absolute; top: 60px; bottom: 0px; overflow: hidden; }
-.fullscreen .main .main-con{ flex: 1; overflow-y: scroll; padding: 20px; display: block;  }
+.fullscreen{ width: 100%; position: relative; }
+.fullscreen .main{ display: flex; position: relative; overflow: hidden; }
+.fullscreen .main .main-con{ flex: 1; padding: 20px; display: block;  }
+.breadcrumb-container{ margin-bottom: 20px; }
 .breadcrumb-container .title{ width: 100%; font-size: 18px; line-height: 40px; text-align: left; float: left; color: #ff416d; }
 </style>

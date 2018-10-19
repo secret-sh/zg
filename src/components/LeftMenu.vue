@@ -1,10 +1,10 @@
 <template>
   <el-aside class="leftmenu">
  
-    <el-menu :default-active="activeIndex" background-color="#334156" text-color="#fff" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened mode="vertical" router>
-      <el-row class="leftmenutoolbox">
+    <el-menu :default-active="activeIndex" background-color="#fff" text-color="#333" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened mode="vertical" router>
+      <!-- <el-row class="leftmenutoolbox">
         <div @click.prevent="leftmenucollapse" class="tools"><i class="el-icon-menu"></i></div>
-      </el-row>
+      </el-row> -->
       <template v-for="(leftmenu,index) in $router.options.routes">
         <el-submenu :index="leftmenu.name" v-if="leftmenu.children">
             <template slot="title"><i :class="leftmenu.icon"></i><span slot="title">{{leftmenu.name}}</span></template>
@@ -23,7 +23,7 @@ export default {
   data: function () {
     return {
       activeIndex: '/Home/ggsearch/',
-      isCollapse: false
+      isCollapse: true
     }
   },
   methods: {
@@ -46,10 +46,11 @@ export default {
 </script>
 
 <style scoped>
-.leftmenu{ width: auto !important; }
-.leftmenu .el-menu{ height: 100%; display: block; text-align: left; }
-.leftmenu .el-menu:not(.el-menu--collapse) { width: 220px; flex: 0 0 220px; }
-.leftmenu .el-menu .el-menu-item.is-active{ background-color: #2b394e !important; }
+.leftmenu{ width: auto !important; position: fixed; top: 100px; left: 0px; }
+.leftmenu .el-menu{ height: auto; display: block; text-align: left; }
+.leftmenu .el-menu:not(.el-menu--collapse) { width: 150px; flex: 0 0 150px; }
+.leftmenu .el-menu .el-menu-item{ padding: 0px 15px !important; min-width: 100%; }
+.leftmenu .el-menu .el-menu-item.is-active{ background-color: #ccc !important; }
 .leftmenutoolbox{ width: 100%; display: block; }
 .leftmenutoolbox .tools{ width: 60px; height: 60px; font-size: 20px; text-align: center; line-height: 60px; color: #fff; }
 .leftmenutoolbox .tools:active{ background: #334156; }
