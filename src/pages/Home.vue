@@ -21,7 +21,7 @@
 
       </el-container>
     </el-col>
-    <LeftMenu></LeftMenu>
+    <!-- <LeftMenu></LeftMenu> -->
   </el-row>
 </template>
 
@@ -38,7 +38,7 @@ export default{
 </script>
 
 <style scoped>
-.fullscreen{ width: 100%; position: relative; }
+.fullscreen{ width: 100%; min-width: 1100px; position: relative; }
 .fullscreen .main{ display: flex; position: relative; overflow: hidden; }
 .fullscreen .main .main-con{ flex: 1; padding: 20px; display: block;  }
 .breadcrumb-container{ margin-bottom: 20px; }

@@ -7,11 +7,17 @@
       <!-- <el-col :span="1">
         <div @click.prevent="leftmenucollapse" class="tools"><i class="el-icon-menu"></i></div>
       </el-col> -->
-      <!-- <el-col :span="14" :offset="1">
-        <el-menu :default-active="activeIndex" background-color="#2b394e" text-color="#fff" active-text-color="#ff416d" class="el-menu-demo" mode="horizontal">
-          <el-menu-item :index="index" v-for="(headmenu,index) in headmenus" :key="headmenu.name">{{ headmenu.name }}</el-menu-item>
+      <el-col :span="10" :offset="1">
+        <el-menu :default-active="activeIndex" class="el-menu-demo" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" mode="horizontal" router>
+          <template v-for="(leftmenu,index) in $router.options.routes">
+            <el-submenu :index="leftmenu.name" v-if="leftmenu.children">
+                <template slot="title"><span slot="title">{{leftmenu.name}}</span></template>
+                <el-menu-item v-for="leftmenuchild in leftmenu.children" :index="leftmenuchild.path" :key="leftmenuchild.path"><i :class="leftmenuchild.icon"></i>{{leftmenuchild.name}}</el-menu-item>
+            </el-submenu>
+            <el-menu-item v-if="!leftmenu.children" :index="leftmenu.path"><!-- <i :class="leftmenu.icon"> --></i><span slot="title">{{leftmenu.name}}</span></el-menu-item>
+          </template>
         </el-menu>
-      </el-col> -->
+      </el-col>
       <el-col :span="4" class="userinfo">
         <!-- 未登录 -->
         <!-- <el-button size="medium" type="danger">登录</el-button> -->
@@ -39,28 +45,33 @@ export default {
   data: function () {
     return {
       headtitle: '黑龙江中公教育',
-      activeIndex: '1',
-      headmenus: [
-        {'name': '公告查询'},
-        {'name': '面授课程'},
-        {'name': '网校课程'},
-        {'name': '直播课'},
-        {'name': '考试大军'}
-      ]
+      activeIndex: '/Home/ggsearch/'
     }
   },
   methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
+  },
+  computed:{
+    onRoutes() {
+      return this.$route.path.replace('/', '');
+    }
   }
 }
 </script>
 
 <style scoped>
-.el-header{ background: #fff; padding: 0px; line-height: 60px; }
+.el-header{ padding: 0px; line-height: 60px; background: rgba(255,255,255,1); }
 .el-header .logowidth{ width: 220px; }
 .logo{ width: 100%; display: block; height:60px; padding: 13px 5px; position: relative; text-align: left; box-sizing: border-box;
 border-right-width: 1px; border-color: hsla(62,77%,76%,.3); border-right-style: solid; }
 .logo img{ height: 100%; display: inline-block; }
 .el-header .el-menu{ background: transparent; }
+.el-header .el-menu .el-submenu .el-submenu__title span,.el-header .el-menu .el-menu-item span{ font-size: 17px; font-weight: bold; }
 .el-header .tools{ width: 60px; height: 60px; font-size: 20px; text-align: center; line-height: 60px; color: #333; }
 .el-header .tools:active{ background: #334156; }
 .el-header .userinfo{ height: 60px; padding: 0 15px 0 0; color: #333; text-align: right; float: right; }
