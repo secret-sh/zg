@@ -22,7 +22,7 @@ ul,li{ list-style-type: none; padding: 0;}
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-.el-scrollbar__wrap{ overflow-x: hidden;  }
+.el-scrollbar__wrap{ overflow-x: hidden !important;  }
 .el-table-filter__wrap{ margin-bottom: 0px !important; }
 .contitle{ width: 100%; display: block; line-height: 50px; font-size: 20px; font-weight: bold; text-align: left; }
 </style>
