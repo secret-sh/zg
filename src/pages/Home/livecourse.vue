@@ -14,13 +14,13 @@
 </template>
 
 <script>
-import zghktj from '@/pages/Home/zghktj'
-import zgzbjz from '@/pages/Home/zgzbjz'
+import zghktj from '@/pages/Public/zghktj'
+import zgzbjz from '@/pages/Home/Livecourse/zgzbjz'
 export default {
   name: 'livecourse',
   data() {
     return {
-    	activeIndex: '/Home/livecourse/',
+    	activeIndex: '/Home/Livecourse/livecourse/',
       	isCollapse: false
     }
   },

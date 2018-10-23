@@ -1,0 +1,88 @@
+﻿{
+    "zbktablebody": [
+        {
+            "city": "哈尔滨",
+            "date": "2018-10-26 19:00",
+            "classfy": "教师招聘",
+            "livecon": "黑龙江呼兰教师招聘试题解析讲座",
+            "entrance": "http://19.offcn.com/class-35452/"
+        },
+        {
+            "city": "哈尔滨",
+            "date": "2018-10-07 19:00",
+            "classfy": "事业单位",
+            "livecon": "黑龙江事业单位行测备考讲座",
+            "entrance": "http://19.offcn.com/class-35533/"
+        },
+        {
+            "city": "黑龙江",
+            "date": "国考期间",
+            "classfy": "国考",
+            "livecon": "2019国家公务员考试线上直播课汇总",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "哈尔滨",
+            "date": "2018-10-17 19:00",
+            "classfy": "考研",
+            "livecon": "19考研英语作文高分指导",
+            "entrance": "http://19.offcn.com/class-35635/"
+        },
+        {
+            "city": "牡丹江",
+            "date": "2018-10-17 19:00",
+            "classfy": "烟草招聘",
+            "livecon": "牡丹江烟草招聘考情解析及备考指导",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "江北",
+            "date": "2018-10-08 19:00",
+            "classfy": "教师招聘",
+            "livecon": "黑龙江鹤岗教师招聘面试备考峰会",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "黑龙江",
+            "date": "国考期间",
+            "classfy": "国考",
+            "livecon": "2019国家公务员考试线上直播课汇总",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "黑龙江",
+            "date": "国考期间",
+            "classfy": "国考",
+            "livecon": "2019国家公务员考试线上直播课汇总",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "哈尔滨",
+            "date": "2018-10-17 19:00",
+            "classfy": "考研",
+            "livecon": "19考研英语作文高分指导",
+            "entrance": "http://19.offcn.com/class-35635/"
+        },
+        {
+            "city": "牡丹江",
+            "date": "2018-10-17 19:00",
+            "classfy": "烟草招聘",
+            "livecon": "牡丹江烟草招聘考情解析及备考指导",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "江北",
+            "date": "2018-10-08 19:00",
+            "classfy": "教师招聘",
+            "livecon": "黑龙江鹤岗教师招聘面试备考峰会",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        },
+        {
+            "city": "黑龙江",
+            "date": "国考期间",
+            "classfy": "国考",
+            "livecon": "2019国家公务员考试线上直播课汇总",
+            "entrance": "http://hlj.offcn.com/zg/2019gkzbk/"
+        }
+    ]
+}
