@@ -22,17 +22,21 @@
       </el-container>
     </el-col>
     <!-- <LeftMenu></LeftMenu> -->
+    <el-col :span="24">
+      <Footer></Footer>
+    </el-col>
   </el-row>
 </template>
 
 <script>
 import Header from '@/components/Header'
 import LeftMenu from '@/components/LeftMenu'
+import Footer from '@/components/Footer'
 
 export default{
   name: 'Home',
   components: {
-    Header, LeftMenu
+    Header, LeftMenu, Footer
   }
 }
 </script>

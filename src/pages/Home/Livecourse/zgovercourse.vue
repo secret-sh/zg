@@ -1,8 +1,8 @@
 <template>
 	<el-row v-loading="loading" class="livekcbox">
 		<template>
-			<h3 class="contitle">所有直播</h3>
-			<el-table :data="allcoursedate.slice((currentPage-1)*pageSize,currentPage*pageSize)" border max-height="100%" @selection-change="handleSelectionChange">
+			<h3 class="contitle">往期汇总</h3>
+			<el-table :data="zgovercoursedate.slice((currentPage-1)*pageSize,currentPage*pageSize)" border max-height="100%" @selection-change="handleSelectionChange">
 				<el-table-column prop="city" label="地市"
 					:filters="allcoursefilters"
 					:filter-method="filterTag"
@@ -16,7 +16,7 @@
 				<el-table-column prop="livecon" width="350" label="讲座内容"></el-table-column>
 				<el-table-column prop="entrance" label="听课入口">
 					<template slot-scope="scope">
-						<el-button size="small" @click="livecourseopen(scope.row)" type="primary">查看</el-button>
+						<el-button size="small" @click="livecourseopen(scope.row)" type="info">已结课</el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -28,7 +28,7 @@
 				:page-sizes="[5, 10, 15, 20]"
 				:page-size="pageSize"
 				layout="total, sizes, prev, pager, next, jumper"
-				:total="zgalltotal">
+				:total="overalltotal">
 		    </el-pagination>
 		</template>
 	</el-row>
@@ -36,15 +36,14 @@
 
 <script>
 export default {
-	//props:['allcoursedate'],
-  name: 'zgallcourse',
+  name: 'zgovercourse',
   data() {
     return {
     	loading: true,
-    	allcoursedate:[],
+    	zgovercoursedate:[],
     	currentPage: 1,
     	pageSize: 5,
-    	zgalltotal: 0,
+    	overalltotal: 0,
     	allcoursefilters:[],
     	NowDate: ''
     }
@@ -57,12 +56,21 @@ export default {
   		var that = this;
   		this.$axios.get('./static/json/zgzbk.json')
   		.then(function(response){
-  			that.allcoursedate = response.data.zbktablebody
-  			that.zgalltotal = response.data.zbktablebody.length
+  			//即将直播数据判断;
+			that.NowDate = new Date().getTime();
+			const zgliveingArr = new Array();
+			for(let i=0; i<response.data.zbktablebody.length; i++){
+				const zbkDate = new Date(response.data.zbktablebody[i].date).getTime();
+				if(that.NowDate>zbkDate){
+					zgliveingArr.push(response.data.zbktablebody[i])
+				}
+			}
+  			that.zgovercoursedate = zgliveingArr
+  			that.overalltotal = that.zgovercoursedate.length
   			//向父组建传直播场次
-  			that.$emit('allcoursedate', that.zgalltotal)
+  			that.$emit('overalltotal', that.overalltotal)
   			const zjarray = new Array();
-  			for(let i=0; i<that.zgalltotal; i++){
+  			for(let i=0; i<that.overalltotal; i++){
 				zjarray.push(response.data.zbktablebody[i].city);
   			}
   			const zjarrayb = new Array();
@@ -77,15 +85,18 @@ export default {
   			setTimeout(function(){
 				that.loading = false
   			},300);
-  			that.NowDate = new Date();
   		})
   		.catch(function(error){
-  			console.log("所有直播课列表请求错误" + error);
+  			console.log("已结束直播课列表请求错误" + error);
   		});
   	},
   	livecourseopen:function(row){
-  		console.log(row)
-  		
+  		this.$notify({
+  			type:'warning',
+  			duration:2000,
+  			title:'提示',
+  			message:'此场讲座已经结束 无法查看'
+  		})
   	},
   	handleSizeChange(val){
 		this.pageSize = val;

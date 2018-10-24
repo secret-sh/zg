@@ -1,8 +1,8 @@
 <template>
 	<el-row v-loading="loading" class="livekcbox">
 		<template>
-			<h3 class="contitle">所有直播</h3>
-			<el-table :data="allcoursedate.slice((currentPage-1)*pageSize,currentPage*pageSize)" border max-height="100%" @selection-change="handleSelectionChange">
+			<h3 class="contitle">即将直播</h3>
+			<el-table :data="zgliveingcoursedate.slice((currentPage-1)*pageSize,currentPage*pageSize)" border max-height="100%" @selection-change="handleSelectionChange">
 				<el-table-column prop="city" label="地市"
 					:filters="allcoursefilters"
 					:filter-method="filterTag"
@@ -28,25 +28,43 @@
 				:page-sizes="[5, 10, 15, 20]"
 				:page-size="pageSize"
 				layout="total, sizes, prev, pager, next, jumper"
-				:total="zgalltotal">
+				:total="livealltotal">
 		    </el-pagination>
 		</template>
+		<el-dialog
+			title="讲座信息"
+			:visible.sync="dialogVisible"
+			width="40%">
+			<p>{{ dialogtxt1 }}</p>
+			<p>{{ dialogtxt2 }}</p>
+			<p>{{ dialogtxt3 }}</p>
+			<p>{{ dialogtxt4 }}</p>
+			<span slot="footer" class="dialog-footer">
+				<el-button @click="dialogVisible = false">我在看看</el-button>
+				<a class="el-button el-button--warning" @click="dialogVisible = false" :href="dialogbtnhref" target="_blank">立即听课</a>
+			</span>
+		</el-dialog>
 	</el-row>
 </template>
 
 <script>
 export default {
-	//props:['allcoursedate'],
-  name: 'zgallcourse',
+  name: 'zgliveingcourse',
   data() {
     return {
     	loading: true,
-    	allcoursedate:[],
+    	zgliveingcoursedate:[],
     	currentPage: 1,
     	pageSize: 5,
-    	zgalltotal: 0,
+    	livealltotal: 0,
     	allcoursefilters:[],
-    	NowDate: ''
+    	dialogVisible:false,
+    	NowDate: '',
+    	dialogtxt1: '',
+    	dialogtxt2: '',
+    	dialogtxt3: '',
+    	dialogtxt4: '',
+    	dialogbtnhref: ''
     }
   },
   mounted: function(){
@@ -57,12 +75,21 @@ export default {
   		var that = this;
   		this.$axios.get('./static/json/zgzbk.json')
   		.then(function(response){
-  			that.allcoursedate = response.data.zbktablebody
-  			that.zgalltotal = response.data.zbktablebody.length
+  			//即将直播数据判断;
+			that.NowDate = new Date().getTime();
+			const zgliveingArr = new Array();
+			for(let i=0; i<response.data.zbktablebody.length; i++){
+				const zbkDate = new Date(response.data.zbktablebody[i].date).getTime();
+				if(that.NowDate<zbkDate){
+					zgliveingArr.push(response.data.zbktablebody[i])
+				}
+			}
+  			that.zgliveingcoursedate = zgliveingArr
+  			that.livealltotal = that.zgliveingcoursedate.length
   			//向父组建传直播场次
-  			that.$emit('allcoursedate', that.zgalltotal)
+  			that.$emit('livealltotal', that.livealltotal)
   			const zjarray = new Array();
-  			for(let i=0; i<that.zgalltotal; i++){
+  			for(let i=0; i<that.livealltotal; i++){
 				zjarray.push(response.data.zbktablebody[i].city);
   			}
   			const zjarrayb = new Array();
@@ -77,15 +104,17 @@ export default {
   			setTimeout(function(){
 				that.loading = false
   			},300);
-  			that.NowDate = new Date();
   		})
   		.catch(function(error){
-  			console.log("所有直播课列表请求错误" + error);
+  			console.log("即将直播课列表请求错误" + error);
   		});
   	},
   	livecourseopen:function(row){
-  		console.log(row)
-  		
+  		this.dialogVisible = true
+  		this.dialogtxt1 = row.city + " " + row.classfy
+  		this.dialogtxt2 = row.date
+  		this.dialogtxt3 = row.livecon
+  		this.dialogbtnhref = row.entrance
   	},
   	handleSizeChange(val){
 		this.pageSize = val;
@@ -112,4 +141,5 @@ export default {
 a,a:hover{ text-decoration: none; }
 .el-pagination{ display: block; background: #fff; border: 1px solid #eee; padding: 10px; text-align: right; }
 .livekcbox{ width: 100%; display: block; }
+.el-dialog p{ line-height: 30px; font-size: 15px; font-weight: bold; }
 </style>

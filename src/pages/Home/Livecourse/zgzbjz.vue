@@ -4,7 +4,7 @@
 			<el-col :span="6">
 				<div class="zgzbjz_changci_bq changci_all">
 					<p>共直播场次</p>
-					<h3><strong>{{ total }}</strong><span>场</span></h3>
+					<h3><strong>{{ liveing + liveover }}</strong><span>场</span></h3>
 				</div>
 			</el-col>
 			<el-col :span="6">
@@ -15,40 +15,75 @@
 			</el-col>
 			<el-col :span="6">
 				<div class="zgzbjz_changci_bq changci_over">
-					<p>已结束直播</p>
+					<p>往期直播</p>
 					<h3><strong>{{ liveover }}</strong><span>场</span></h3>
 				</div>
 			</el-col>
 		</el-row>
 		<el-row>
 			<el-button-group style="margin-bottom: 10px;">
-				<el-button type="primary" plain>所有直播</el-button>
-				<el-button type="primary" plain>即将直播</el-button>
-				<el-button type="primary" plain>往期汇总</el-button>
+				<template v-for="(buttontab,index) in buttontabs">
+					<el-button :class="{active:iscur==index}" @click.prevent="livetabSelect(index,buttontab.component)">{{ buttontab.name }}</el-button>
+				</template>
 			</el-button-group>
-			<zgallcourse></zgallcourse>
+			<el-row>
+				<transition name="slide-fade" appear>
+					<el-col v-show="livetabview==='zgliveingcourse'">
+						<zgliveingcourse v-on:livealltotal="livealltotalFun"></zgliveingcourse>
+					</el-col>
+				</transition>
+				<transition name="slide-fade" appear>
+					<el-col v-show="livetabview==='zgovercourse'">
+						<zgovercourse v-on:overalltotal="overalltotalFun"></zgovercourse>
+					</el-col>
+				</transition>
+			</el-row>
+			<!-- <keep-alive>
+				<transition name="slide-fade" mode="out-in">
+					<component v-bind:is="livetabview"></component>
+				</transition>
+			</keep-alive> -->
 		</el-row>
 
 	</div>
 </template>
 
 <script>
-import zgallcourse from '@/pages/Home/Livecourse/zgallcourse'
+import zgliveingcourse from '@/pages/Home/Livecourse/zgliveingcourse'
+import zgovercourse from '@/pages/Home/Livecourse/zgovercourse'
 export default {
   name: 'zgzbjz',
   data() {
     return {
-    	livetab:'',
+    	livetabview:'zgliveingcourse',
+    	buttontabs:[
+    		{name:"即将直播", component:"zgliveingcourse"},
+    		{name:"往期汇总", component:"zgovercourse"}
+    		],
+    	iscur:0,
     	total: 0,
     	liveing: 0,
-    	liveover: 0,
-    	livehuifang: 0
+    	liveover: 0
     }
   },
   components:{
-  	zgallcourse
+  	zgliveingcourse, zgovercourse
   },
   methods:{
+  	livetabSelect:function(tabindex,tabcomponent){
+  		this.iscur = tabindex;
+  		this.livetabview = tabcomponent;
+  	},
+  	allcoursedateFun:function(data){
+  		this.total = data
+  	},
+  	livealltotalFun:function(data){
+  		this.liveing = data
+  	},
+  	overalltotalFun:function(data){
+  		this.liveover = data
+  	}
+  	
   }
 }
 </script>
@@ -71,4 +106,5 @@ a,a:hover{ text-decoration: none; }
 .changci_huifang h3 strong{ color: #666; }
 
 .el-table-filter__wrap{ margin-bottom: 0px !important; }
+.el-button.active{ background: #ff416d; color: #fff; border-color:#f51a4d; }
 </style>
