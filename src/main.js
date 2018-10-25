@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from './assets/axios'
+import './assets/font/iconfont.css'	//引入自定义图标样式
 
 Vue.config.productionTip = false
 

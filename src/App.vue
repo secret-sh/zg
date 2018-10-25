@@ -18,6 +18,7 @@ html,body{ height: 100%; margin: 0; padding: 0; background: #f4f5ff; }
 ul,li{ list-style-type: none; padding: 0;}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+ /* font-family:'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei';*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

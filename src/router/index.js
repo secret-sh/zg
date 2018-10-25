@@ -4,9 +4,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 // 页面组件
+//默认首页
+import Index from '@/pages/Index'
 
 //内容查询
-import Home from '@/pages/Home'
+import Home from '@/pages/Home/Home'
 import ggsearch from '@/pages/Home/ggsearch'
 import mscourse from '@/pages/Home/mscourse'
 import wxcourse from '@/pages/Home/wxcourse'
@@ -22,9 +24,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '内容查询',
+      name: '内容',
       icon: 'el-icon-search',
-      component: Home,
+      component: Index,
       children: [
         {
           name: '公告查询',
