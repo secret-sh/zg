@@ -11,10 +11,10 @@
         <el-menu :default-active="activeIndex" class="el-menu-demo" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" mode="horizontal" router>
           <template v-for="(leftmenu,index) in $router.options.routes">
             <el-submenu :index="leftmenu.name" v-if="leftmenu.children">
-                <template slot="title"><span slot="title">{{leftmenu.name}}</span></template>
+                <template slot="title"><i :class="leftmenu.icon"></i><span slot="title">{{leftmenu.name}}</span></template>
                 <el-menu-item v-for="leftmenuchild in leftmenu.children" :index="leftmenuchild.path" :key="leftmenuchild.path"><i :class="leftmenuchild.icon"></i>{{leftmenuchild.name}}</el-menu-item>
             </el-submenu>
-            <el-menu-item v-if="!leftmenu.children" :index="leftmenu.path"><!-- <i :class="leftmenu.icon"> --></i><span slot="title">{{leftmenu.name}}</span></el-menu-item>
+            <el-menu-item v-if="!leftmenu.children" :index="leftmenu.path"><i :class="leftmenu.icon"></i><span slot="title">{{leftmenu.name}}</span></el-menu-item>
           </template>
         </el-menu>
       </el-col>
@@ -71,7 +71,7 @@ export default {
 border-right-width: 1px; border-color: hsla(62,77%,76%,.3); border-right-style: solid; }
 .logo img{ height: 100%; display: inline-block; }
 .el-header .el-menu{ background: transparent; }
-.el-header .el-menu .el-submenu .el-submenu__title span,.el-header .el-menu .el-menu-item span{ font-size: 17px; font-weight: bold; }
+.el-header .el-menu .el-submenu .el-submenu__title span,.el-header .el-menu .el-menu-item span{ font-size: 15px; }
 .el-header .tools{ width: 60px; height: 60px; font-size: 20px; text-align: center; line-height: 60px; color: #333; }
 .el-header .tools:active{ background: #334156; }
 .el-header .userinfo{ height: 60px; padding: 0 15px 0 0; color: #333; text-align: right; float: right; }

@@ -35,4 +35,14 @@ ul,li{ list-style-type: none; padding: 0;}
   transform: translateX(50px);
   opacity: 0;
 }
+.fadein-enter-active,.fadein-leave-active{
+    opacity: 1;
+    transition:opacity .7s;
+    -webkit-transition:opacity .7s;
+  }
+.fadein-enter,.fadein-leave {
+    opacity: 0;
+    transition:opacity .7s;
+    -webkit-transition:opacity .7s;
+}
 </style>

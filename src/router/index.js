@@ -24,9 +24,15 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: '内容',
+      name: '首页',
+      icon: 'el-icon-star-off',
+      component: Index
+    },
+    {
+      path: '/Home/',
+      name: '热门平台',
       icon: 'el-icon-search',
-      component: Index,
+      component: Home,
       children: [
         {
           name: '公告查询',
@@ -61,11 +67,11 @@ export default new Router({
       ]
     },
     {
-      path: '/User/userinfo',
+      path: '/User/',
       name: '个人信息',
       icon: 'el-icon-info',
       component: userinfo
     }
-
+    
   ]
 })
