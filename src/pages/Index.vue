@@ -79,7 +79,7 @@ export default{
         that.logoactivetab = true
       },500)
       setTimeout(function(){
-        that.$router.push({path:'/Home/'});
+        that.$router.push({path:'/Home/ggsearch/'});
       },3000)
     }
   },

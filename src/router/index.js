@@ -29,7 +29,7 @@ export default new Router({
       component: Index
     },
     {
-      path: '/Home/',
+      path: '/Home/ggsearch/',
       name: '热门平台',
       icon: 'el-icon-search',
       component: Home,

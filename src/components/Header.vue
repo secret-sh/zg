@@ -1,23 +1,23 @@
 <template>
   <el-header>
-    <el-col :span="20" :offset="2">
+    <el-row>
       <el-col :span="4" class="logowidth">
         <div class="logo"><img src="@/assets/img/logo.png" :alt="headtitle"></div>
       </el-col>
       <!-- <el-col :span="1">
         <div @click.prevent="leftmenucollapse" class="tools"><i class="el-icon-menu"></i></div>
       </el-col> -->
-      <el-col :span="10" :offset="1">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" mode="horizontal" router>
+      <!-- <el-col :span="10" :offset="1">
+        <el-menu class="el-menu-demo" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" mode="horizontal" router>
           <template v-for="(leftmenu,index) in $router.options.routes">
             <el-submenu :index="leftmenu.name" v-if="leftmenu.children">
-                <template slot="title"><i :class="leftmenu.icon"></i><span slot="title">{{leftmenu.name}}</span></template>
+                <template slot="title"><span slot="title">{{leftmenu.name}}</span></template>
                 <el-menu-item v-for="leftmenuchild in leftmenu.children" :index="leftmenuchild.path" :key="leftmenuchild.path"><i :class="leftmenuchild.icon"></i>{{leftmenuchild.name}}</el-menu-item>
             </el-submenu>
-            <el-menu-item v-if="!leftmenu.children" :index="leftmenu.path"><i :class="leftmenu.icon"></i><span slot="title">{{leftmenu.name}}</span></el-menu-item>
+            <el-menu-item v-if="!leftmenu.children" :index="leftmenu.path"><span slot="title">{{leftmenu.name}}</span></el-menu-item>
           </template>
         </el-menu>
-      </el-col>
+      </el-col> -->
       <el-col :span="4" class="userinfo">
         <!-- 未登录 -->
         <!-- <el-button size="medium" type="danger">登录</el-button> -->
@@ -35,7 +35,7 @@
           </el-dropdown-menu>
         </el-dropdown>
       </el-col>
-    </el-col>
+    </el-row>
   </el-header>
 </template>
 
@@ -45,7 +45,6 @@ export default {
   data: function () {
     return {
       headtitle: '黑龙江中公教育',
-      activeIndex: '/Home/ggsearch/'
     }
   },
   methods: {
@@ -57,16 +56,16 @@ export default {
     }
   },
   computed:{
-    onRoutes() {
-      return this.$route.path.replace('/', '');
-    }
+    // onRoutes() {
+    //   return this.$router.path.push('/', '');
+    // }
   }
 }
 </script>
 
 <style scoped>
-.el-header{ padding: 0px; line-height: 60px; background: rgba(255,255,255,1); }
-.el-header .logowidth{ width: 220px; }
+.el-header{ padding: 0px 10px; line-height: 60px; background: rgba(255,255,255,1); }
+.el-header .logowidth{ width: 190px; }
 .logo{ width: 100%; display: block; height:60px; padding: 13px 5px; position: relative; text-align: left; box-sizing: border-box;
 border-right-width: 1px; border-color: hsla(62,77%,76%,.3); border-right-style: solid; }
 .logo img{ height: 100%; display: inline-block; }

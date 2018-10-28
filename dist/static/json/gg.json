@@ -4,21 +4,36 @@
         "date": "2018-10-21",
         "classfy": "国家公务员",
         "ggtitle": "2019国家公务员考试公告",
-        "ggentrance": "http://hlj.offcn.com/html/2018/10/76317.html"
+        "peoplenum":28533,
+        "ggbtns":[
+            { "name":"链接", "entrance":"http://hlj.offcn.com/html/2018/04/63563.html", "type":""},
+            { "name":"课程", "entrance":"http://hlj.offcn.com/zg/2019gkxdg/", "type":"danger"},
+            { "name":"详细", "type":"primary"}
+        ]
     },
     {
         "city": "黑龙江",
         "date": "2017-12-19",
         "classfy": "黑龙江公务员",
         "ggtitle": "2018年黑龙江省公务员考试公告汇总",
-        "ggentrance": "http://hlj.offcn.com/html/2017/12/58183.html"
+        "peoplenum":7559,
+        "ggbtns":[
+            { "name":"链接", "entrance":"http://hlj.offcn.com/html/2017/12/58422.html", "type":""},
+            { "name":"课程", "entrance":"http://hlj.offcn.com/zg/hljkchz/", "type":"danger"},
+            { "name":"详细", "type":"primary"}
+        ]
     },
     {
         "city": "黑龙江",
         "date": "2018-10-09",
         "classfy": "银行招聘",
         "ggtitle": "2019中国人民银行黑龙江省招聘141人公告",
-        "ggentrance": "http://hlj.jinrongren.net/yh/2018/1009/18008.html"
-    },
+        "peoplenum":141,
+        "ggbtns":[
+            { "name":"链接", "entrance":"http://hlj.jinrongren.net/yh/2018/1009/18008.html", "type":""},
+            { "name":"课程", "entrance":"https://www.51gouke.com/hljheb/18-33-gk5974.html", "type":"danger"},
+            { "name":"详细", "type":"primary"}
+        ]
+    }
 ]
 
