@@ -1,15 +1,8 @@
 <template>
 	<el-row>
 		<el-col :span="24" class="livecoursebox">
-			<el-col :span="6">
-				<zghktj></zghktj>
-			</el-col>
-			<el-col :span="17" :offset="1">
-				<zgzbjz></zgzbjz>
-			</el-col>
-			
+			<zgzbjz></zgzbjz>
 		</el-col>
-		
 	</el-row>
 </template>
 

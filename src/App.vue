@@ -1,9 +1,7 @@
 <template>
-	<el-scrollbar style="height:100%">
 		<div id="app">
 			<router-view/>
 		</div>
-	</el-scrollbar>
 </template>
 
 <script>
@@ -23,11 +21,23 @@ ul,li{ list-style-type: none; padding: 0;}
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-.el-scrollbar__wrap{ overflow-x: hidden !important; margin-bottom: 0px !important;  }
-.el-table-filter__wrap{ margin-bottom: 0px !important; }
+.hiddenX .el-scrollbar__wrap{ overflow-x: hidden !important; }
+.hiddenY .el-scrollbar__wrap{ overflow-x: hidden !important; }
+.hiddenALL .el-scrollbar__wrap{ overflow: hidden !important; }
+.scrollmb0{ margin-bottom: 0px !important;  }
+.el-table-filter__wrap{ margin-bottom: 0px !important; overflow-x:hidden; }
 .contitle{ width: 100%; display: block; line-height: 50px; font-size: 20px; font-weight: bold; text-align: left; }
 .el-menu{ border-right:none; }
 .el-menu--vertical{ background: #fff; }
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both
+}
 /* 设置持续时间和动画函数 */
 .slide-fade-enter-active {
   transition: all .3s ease;

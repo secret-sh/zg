@@ -1,6 +1,6 @@
 <template>
   <el-aside class="leftmenu">
-    <el-scrollbar style="height:100%">
+    <el-scrollbar class="hiddenX" style="height:100%">
       <el-menu :default-active="activeIndex" background-color="transparent" text-color="#333" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened mode="vertical" router>
           <el-row class="leftmenutoolbox">
             <div @click.prevent="leftmenucollapse" class="tools"><i class="el-icon-menu"></i></div>

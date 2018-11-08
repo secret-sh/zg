@@ -97,7 +97,7 @@ export default {
             if (ggthis.zgggsearchresult.length === 0) {
               ggthis.$alert('没有查到任何数据', '提示', {
                 confirmButtonText: '确定'
-              });
+              }); 
               ggthis.zgggsearchresult =  []
             }
             console.log(ggthis.zgggsearchresult)
