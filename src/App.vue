@@ -29,6 +29,7 @@ ul,li{ list-style-type: none; padding: 0;}
 .contitle{ width: 100%; display: block; line-height: 50px; font-size: 20px; font-weight: bold; text-align: left; }
 .el-menu{ border-right:none; }
 .el-menu--vertical{ background: #fff; }
+.msbox .el-tabs__content{ overflow: visible; }
 .clearfix:before,
 .clearfix:after {
     display: table;
@@ -56,4 +57,25 @@ ul,li{ list-style-type: none; padding: 0;}
     transition:opacity .7s;
     -webkit-transition:opacity .7s;
 }
+
+.slide-right-enter {
+    transform: translateX(-100%);
+}
+.slide-left-enter {
+    transform: translateX(100%);
+}
+.slide-top-enter {
+    transform: translateY(100%);
+}
+
+/*主色调颜色修改*/
+.el-button--primary{ background-color: #2c5df4; border-color: #2c5df4; }
+.el-button--danger{ background-color: #f42c56; border-color: #f42c56; }
+.el-button--success{ background-color: #00c9af; border-color: #00c9af; }
+.el-button--warning{ background-color: #f5af09; border-color: #f5af09; }
+
+.el-tabs__item:hover{ color: #2c5df4; }
+.el-tabs__item.is-active{ color: #2c5df4; }
+.el-tabs__active-bar{ background-color: #2c5df4; }
+
 </style>

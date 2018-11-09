@@ -106,5 +106,5 @@ a,a:hover{ text-decoration: none; }
 .changci_huifang h3 strong{ color: #666; }
 
 .el-table-filter__wrap{ margin-bottom: 0px !important; }
-.el-button.active{ background: #ff416d; color: #fff; border-color:#f51a4d; }
+.el-button.active{ background: #2c5df4; color: #fff; border-color:#2c5df4; }
 </style>

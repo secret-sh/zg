@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-.el-header{ padding: 0px 10px; line-height: 60px; background: rgba(255,255,255,1); }
+.el-header{ padding: 0px 10px; line-height: 60px; background: rgba(255,255,255,1); box-shadow: 0px 5px 20px #d5e8ff; z-index: 10; position: relative;}
 .el-header .logowidth{ width: 190px; }
 .logo{ width: 100%; display: block; height:60px; padding: 13px 5px; position: relative; text-align: left; box-sizing: border-box;
 border-right-width: 1px; border-color: hsla(62,77%,76%,.3); border-right-style: solid; }
