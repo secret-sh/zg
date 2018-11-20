@@ -53,7 +53,7 @@ export default {
   		.then(function(response){
   			that.allggdate = response.data
   			that.zgalltotal = response.data.length
-        console.log(that.allggdate)
+        //console.log(that.allggdate)
   			setTimeout(function(){
 				  that.loading = false
   			},300);

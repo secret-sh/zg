@@ -10,7 +10,7 @@
           <div class="fixedcontainer clearfix">
             <el-col :span="24" class="content-wrapper">
               <transition name="fade" mode="out-in">
-                <router-view></router-view>
+                <router-view ></router-view>
               </transition>
             </el-col>
           </div>
@@ -29,6 +29,10 @@ import zghktj from '@/pages/Public/zghktj'
 
 export default{
   name: 'Home',
+  date(){
+    return{
+    }
+  },
   components: {
     Header, LeftMenu, Footer, zghktj
   }

@@ -1,7 +1,7 @@
 <template>
   <el-aside class="leftmenu">
     <el-scrollbar class="hiddenX" style="height:100%">
-      <el-menu :default-active="activeIndex" background-color="transparent" text-color="#333" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened mode="vertical" router>
+      <el-menu :default-active="$route.path" background-color="transparent" text-color="#333" active-text-color="#ff416d" @open="handleOpen" @close="handleClose" :collapse="isCollapse" unique-opened mode="vertical" router>
           <el-row class="leftmenutoolbox">
             <div @click.prevent="leftmenucollapse" class="tools"><i class="el-icon-menu"></i></div>
           </el-row>
@@ -22,7 +22,7 @@ export default {
   name: 'LeftMenu',
   data: function () {
     return {
-      activeIndex: '/Home/ggsearch/',
+      activeIndex: '',
       isCollapse: false
     }
   },

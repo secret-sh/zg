@@ -100,7 +100,7 @@ export default {
               }); 
               ggthis.zgggsearchresult =  []
             }
-            console.log(ggthis.zgggsearchresult)
+            //console.log(ggthis.zgggsearchresult)
           },1500);
       }else{
          ggthis.$notify({

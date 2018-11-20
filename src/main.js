@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import axios from './assets/axios'
 import './assets/font/iconfont.css'	//引入自定义图标样式
+import VueCharts from 'vue-chartjs'
+import { Bar, Line } from 'vue-chartjs'
 
 Vue.config.productionTip = false
 
