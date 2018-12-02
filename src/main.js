@@ -5,8 +5,18 @@ import App from './App'
 import router from './router'
 import axios from './assets/axios'
 import './assets/font/iconfont.css'	//引入自定义图标样式
-import VueCharts from 'vue-chartjs'
-import { Bar, Line } from 'vue-chartjs'
+import VCharts from 'v-charts' //引入图表
+import VueAMap from 'vue-amap'; //引入高德地图
+
+Vue.use(VCharts)
+Vue.use(VueAMap)
+VueAMap.initAMapApiLoader({
+  key: '20ec544268cc790a81b520241a710555',
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+  // 默认高德 sdk 版本为 1.4.4
+  v: '1.4.4',
+  uiVersion: '1.0.11' // 版本号
+});
 
 Vue.config.productionTip = false
 
