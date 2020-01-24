@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+/**
+ * @description 应用css
+ * @author 易文俊
+ * @since 2017-08-03
+ */
+ 
+/***************检索页**************/
+#scanQRCode {
+	cursor: pointer;
+}
+
+/***************详情页**************/
+.detail-name {
+	float: left;
+	width: 40%;
+	min-width: 130px;
+}
+
+.detail-name-blod {
+	font-weight: bold;
+}
+
+.detail-value {
+	color: blue;
+	word-break: break-all;
+	white-space: normal;
+}
+
+.detail-image {
+	margin: 10px 0;
+	width: 100%;
+}
+
+.detail-image img {
+	width: 100%;
+}
+
+.category-title {
+	background-color: #62B5DE;
+	font-size: 18px !important;
+	color: #fff;
+	text-shadow: none;
+}
