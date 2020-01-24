@@ -1,0 +1,151 @@
+<html class="ui-mobile"><head><base href="http://zclic.tpri.org.cn/zlwx/information.html?reqNo=A1500002020011000828&amp;status=52&amp;from=singlemessage&amp;isappinstalled=0">
+<title>跨省大件审批</title>
+<meta name="author" content="www.tpri.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1,maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link href="js/jquery.mobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css">
+<link href="css/mui.css" rel="stylesheet">
+<link href="css/app.css" rel="stylesheet" type="text/css">
+<script src="js/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script src="js/mui.zoom.js"></script>
+<script src="js/jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery.qrcode.min.js"></script>
+<script src="js/util/ajax.js" charset="UTF-8"></script>
+<script src="js/information.js?time=2" charset="UTF-8"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" type="text/javascript"></script>
+<style type="text/css">
+#qrcode {
+    position: absolute;
+    top: 30px;
+    padding: 10px;
+    height: 180px;
+    width: 180px;
+    text-align: center middle;
+}
+#box_qrcode{
+    display: none;
+}
+#pro{
+    font-weight: bold;
+}
+#codeico {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 40px;
+    height: 40px;
+    //background: url(./images/favicon.png) no-repeat;
+    //background-size:24px 24px;
+}
+</style>
+</head>
+<body class="ui-mobile-viewport ui-overlay-a mui-ios mui-wechat mui-ios-10 mui-ios-10-3 mui-ios-10-3-1 mui-wechat-7 mui-wechat-7-0 mui-wechat-7-0-4">
+    <div data-role="page" data-url="/zlwx/information.html?reqNo=A1500002020011000828&amp;status=52&amp;from=singlemessage&amp;isappinstalled=0" tabindex="0" class="ui-page ui-page-theme-a ui-page-header-fixed ui-page-active" style="padding-top: 26px;">
+        <input id="reqNoHidden" type="hidden" value="A1500002020011000828">
+        <input id="status" type="hidden" value="52">
+        <div data-role="header" data-position="fixed" data-theme="a" style="background-color: #18558D" role="banner" class="ui-header ui-bar-a ui-header-fixed slidedown">
+            
+            <h1 class="ui-title" role="heading" aria-level="1"></h1>
+        </div>        
+        
+         <div id="msg" style="position: fixed; width: 50%; height: 40px; top: 50%; left: 25%; margin-top: -15px; padding: 6px; z-index: 3; font-size: 30px; color: rgb(255, 102, 51); text-align: center; transform: rotate(20deg); display: block; border: 2px solid rgb(255, 102, 51); font-family: monospace;">
+                        此证有效           
+        </div>
+        <div id="msg1" style="position: fixed;width: 50%;height: 40px;top: 50%;left: 25%;margin-top: -15px;padding: 6px;z-index: 3;font-size: 30px;color: #ff6633;text-align: center;display: block;transform: rotate(20deg);display: none;border: 2px solid #ff6633;
+    	font-family: monospace;">
+                        此证已失效           
+        </div>
+        <div role="main" class="ui-content">
+            <ul data-role="listview" data-divider-theme="a" class="ui-listview">                
+                <li id="box_qrcode" class="ui-li-static ui-body-inherit ui-first-child" style="display: list-item;"><div class="detail-name detail-name-blod ">通行证二维码：</div>
+                    <div class="detail-value detail-name-blod" style="height: 220px;">
+                  <div id="qrcode" style="left: 70px;">
+                    <div id="codeico">
+                        <img src="images/favicon.png" width="40">
+                    </div>
+                  <canvas width="180" height="180"></canvas></div></div></li>
+                <li data-role="list-divider" class="category-title ui-li-divider ui-bar-a" role="heading">基本信息</li>  <!-- 基本信息 -->              
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod ">超限运输许可证号：</div>
+                    <div class="detail-value " id="reqNo">A1500002020011000828</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">有效范围：</div>
+                    <div class="detail-value " id="passDists">内蒙古自治区,河北省</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod ">通行时间：</div>
+                    <div class="detail-value " id="passDate">2020年01月16日 12时36分 至 2020年01月31日 23时59分</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod ">通行次数：</div>
+                    <div class="detail-value " id="passCount">单次</div></li>    
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">通行路线：</div>
+                    <div class="detail-value " id="roads"><br><span id="pro">内蒙古自治区</span>:大柳塔村--包府公路-碌碡墕收费站-G18荣乌高速-S31呼大高速-S24兴巴高速-G6京藏高速--蒙冀界<br><hr><span id="pro">河北省</span>:冀蒙界--G6京藏高速-G1013海张高速--张北北收费站<br><hr></div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">承运单位：</div>
+                    <div class="detail-value " id="certName">大庆市益丰物流有限公司</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">经营许可证号：</div>
+                    <div class="detail-value " id="orgCertNo">230602020203</div></li>
+                    
+                    
+                    
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">经营许可证有效期：</div>
+                    <div class="detail-value " id="periodDate">2016-03-09 至 2020-03-09</div></li>
+                    
+                <li data-role="list-divider" class="category-title ui-li-divider ui-bar-a" role="heading">货物信息</li> <!-- 货物信息 -->
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">货物名称：</div>
+                    <div class="detail-value " id="cargoInfo">挖掘机</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">货物重量：</div>
+                    <div class="detail-value " id="cargoWeight">46.20吨</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">货物外廓尺寸(米)：</div>
+                    <div class="detail-value " id="cargoOutline">13.00 × 3.40 × 4.00</div></li>
+                    
+                <li data-role="list-divider" class="category-title ui-li-divider ui-bar-a" role="heading">车辆信息</li> <!-- 车辆信息 -->
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">牵引车车号牌：</div>
+                    <div class="detail-value" id="vehicleNo">黑EJ6623</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">牵引车厂牌型号：</div>
+                    <div class="detail-value" id="model">陕汽牌SX4250XC4Q2</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">牵引车整备质量：</div>
+                    <div class="detail-value" id="vehWeight">8.80吨</div></li>                
+                <li class="han-veh ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">挂车车号牌：</div>
+                    <div class="detail-value" id="hanvehicleNo">黑E4246超</div></li>
+                <li class="han-veh ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">挂车厂牌型号：</div>
+                    <div class="detail-value" id="hanmodel">骏强牌</div></li>
+                <li class="han-veh ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">挂车整备质量：</div>
+                    <div class="detail-value " id="hanvehWeight">15.00吨</div></li>
+                
+                <li data-role="list-divider" class="category-title ui-li-divider ui-bar-a" role="heading">车货总体信息</li> <!-- 车货总体信息 -->
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">车货总重量：</div>
+                    <div class="detail-value " id="totalWeight">70.00吨</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">车货外廓尺寸(米)：</div>
+                    <div class="detail-value " id="totalOutline">20.00 × 3.40 × 4.50</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">轴荷分布：</div>
+                    <div class="detail-value " id="axlesLoad">10+20+40</div></li>
+                <li class="ui-li-static ui-body-inherit"><div class=" detail-name-blod">车货总体轮廓图：</div>
+                    <div class="detail-image detail-value" id="totalImgs">无</div></li>
+                
+                <li data-role="list-divider" class="category-title ui-li-divider ui-bar-a" role="heading">备注</li>
+                <li class="ui-li-static ui-body-inherit"><div class="detail-value " id="bz">许可发证</div></li>
+                    
+                <li data-role="list-divider" class="category-title ui-li-divider ui-bar-a" role="heading">其他信息</li> <!-- 其他信息 -->
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name detail-name-blod">通行意见：</div>
+                    <div class="detail-value " id="passOpinion"><br>内蒙古自治区：<br>交通部门意见:同意<br>公安部门意见:内蒙交警提示：通行时间为每日早6:00至晚19:00，法定节假日禁止通行。<br><hr>河北省：<br>交通部门意见:原则上同意其在申请的时间路线内行驶。车辆应当遵守《中华人民共和国道路交通安全法》及其《实施条例》的相关规定，严格按照《超限运输车辆行驶公路管理规定》第20条要求通行。
+行至我省请提前与沿途/市高速交警支队电话联系，了解沿途交通管制情况，听从交警指挥。联系电话：12122
+通行我省高速大件运输车辆请于每日早6时至晚22时通行，超过此时段后请即刻就近停靠服务区休息，违反规定罚款200记6分,节假日期间禁止超限车辆通行。<br>公安部门意见:暂无！<br><hr></div></li>                
+                <li class="ui-li-static ui-body-inherit"><div class="detail-name-blod">护送方案：</div>
+                    <div class="detail-image detail-value" id="planfile">无</div></li> 
+                <li class="ui-li-static ui-body-inherit ui-last-child"><div class="detail-name-blod">运输计划：</div>
+                    <div class="detail-image detail-value" id="transportplan">无</div></li> 
+            </ul>
+        </div>
+        <div style=" margin: 10px auto;border-top: 1px  black; position: relative; text-align: center;">
+            <span style="display:inline-block;  width:100%; border-top:2px solid #62b5de; vertical-align:5px; "></span>                
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                Information.loadInformationData();
+            });
+        </script>
+    </div>
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div></body></html>
